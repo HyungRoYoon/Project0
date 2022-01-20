@@ -1,17 +1,18 @@
 import scala.io.StdIn._
 import java.io.{File, PrintWriter}
 
+// Consider this as terminal interface in video game.
+// This object needs to do just terminal related
+
 object CrewRecords {
   def main(array: Array[String]): Unit = {
     //You came across abandoned spaceship, trying to see what happened in the past.
     //You have activated main system and are now trying to access records of crews.
-
-
-
+    Init()
   }
-
   def Init(): Unit = {
-    //create text file for username and password
+    //query username and password
+    println("Creating username and password...")
 
   }
 
@@ -21,7 +22,7 @@ object CrewRecords {
 
   }
 
-  def getCrewName(x: Int) : Unit = x match {
+  def getUserChoice(x: Int) : Unit = x match {
     case 0 => quitProgram()
     case 1 => searchPerson()
   }

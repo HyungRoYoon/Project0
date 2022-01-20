@@ -4,7 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="" />
+    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.misc.xml.swo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_2523.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_2931.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_3053.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_2523.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_2931.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_3053.xml.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml.orig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_2523.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_2931.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_3053.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_2523.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_2931.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_3053.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_2523.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_2931.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_3053.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_2523.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_2931.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_3053.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml.orig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/JournalSystem.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Project0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Project0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,12 +110,34 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.28.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ConnectMySQL">
+    <configuration name="ConnectMySQL" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ConnectMySQL" />
+      <module name="Project0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CrewRecords" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="CrewRecords" />
+      <module name="Project0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,6 +149,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scala REPL" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="Project0" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="javaOptions" value="-Djline.terminal=NONE" />
+      <option name="myConsoleArgs" value="" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ConnectMySQL" />
+        <item itemvalue="Scala REPL.Scala REPL" />
+        <item itemvalue="Application.CrewRecords" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
