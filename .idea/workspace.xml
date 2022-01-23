@@ -4,60 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.misc.xml.swo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_2523.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_2931.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_LOCAL_3053.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_2523.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_2931.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.misc_REMOTE_3053.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml.orig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_2523.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_2931.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BACKUP_3053.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_2523.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_2931.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_BASE_3053.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_2523.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_2931.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_LOCAL_3053.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_2523.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_2931.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc_REMOTE_3053.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml.orig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/JournalSystem.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Project0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Project0.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="MySQL connection process implemented and working fine. Added J Connect library, too.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/AuthorizationDatabase.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$714c1235e50b34c62707.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$82aa8f8730802498ba3c.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$8af255d1d3cf99e0daca.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$94ca0999a9d9c6d29e3b.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/JournalSystem.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/LogDatabase.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +77,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager" selected="Application.ConnectMySQL">
+  <component name="RunManager" selected="Application.CrewRecords">
     <configuration name="ConnectMySQL" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ConnectMySQL" />
       <module name="Project0" />
@@ -165,9 +119,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConnectMySQL" />
-        <item itemvalue="Scala REPL.Scala REPL" />
         <item itemvalue="Application.CrewRecords" />
+        <item itemvalue="Scala REPL.Scala REPL" />
+        <item itemvalue="Application.ConnectMySQL" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +134,14 @@
       <option name="presentableId" value="Default" />
       <updated>1642527202899</updated>
     </task>
+    <task id="LOCAL-00001" summary="MySQL connection process implemented and working fine. Added J Connect library, too.">
+      <created>1642649005300</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642649005300</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +206,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../repo/Project0" />
     </ignored-roots>
+    <MESSAGE value="MySQL connection process implemented and working fine. Added J Connect library, too." />
+    <option name="LAST_COMMIT_MESSAGE" value="MySQL connection process implemented and working fine. Added J Connect library, too." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
