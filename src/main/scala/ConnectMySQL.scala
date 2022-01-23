@@ -1,5 +1,6 @@
 import java.sql.DriverManager
 import java.sql.Connection
+import scala.reflect._
 
 
 class ConnectMySQL {
@@ -14,12 +15,33 @@ class ConnectMySQL {
   Class.forName(driver)
   connection = DriverManager.getConnection(url, username, password)
 
-  def establishConnection(){
+  def establishConnection() {
 
   }
 
-  def establishConnection(authorizationDatabase: AuthorizationDatabase){
+  //for reusability optimization
+//  def establishConnection(c: Class[_]): Any = c match {
+//
+//    //authorizationDatabase.authorize(connection)
+//    case a if a == classOf[AuthorizationDatabase] =>
+//    case _ => print("try again")
+//
+//
+//  }
+
+  def establishConnection(authorizationDatabase: AuthorizationDatabase)
+  {
     authorizationDatabase.authorize(connection)
+  }
+
+  def establishConnection(logDatabase: LogDatabase)
+  {
+    logDatabase.searchNameDatabase(connection)
+  }
+
+  def establishConnection(crewInfoDatabase: CrewInfoDatabase)
+  {
+    crewInfoDatabase.showNameTable(connection)
   }
 
   def closeConnection(): Unit =
