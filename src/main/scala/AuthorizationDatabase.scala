@@ -1,14 +1,16 @@
 import java.sql.Connection
 import util.control.Breaks.{break, _}
+import java.util._
 import scala.io.StdIn.readLine
 
-
+//Authorization DB query related
 class AuthorizationDatabase {
   var attemptedName: String = _
   var attemptedPassword: String = _
-  val logDatabase = new LogDatabase
   var canSearchDB = false;
   var attemptedCounter = 3;
+  val closeMySQL = new ConnectMySQL
+  var rsArray = new ArrayList[String]()
 
   def showNames(connection: Connection) : Unit =
   {
@@ -29,7 +31,6 @@ class AuthorizationDatabase {
     catch {
       case e: Exception => e.printStackTrace
     }
-    val closeMySQL = new ConnectMySQL
     closeMySQL.closeConnection()
   }
 
@@ -90,7 +91,7 @@ class AuthorizationDatabase {
         }
       }
       catch {
-        case e: Exception => e.printStackTrace
+        case e: Exception => println("AuthorizationDB caught: "+e.toString)
       }
       val closeMySQL = new ConnectMySQL
       closeMySQL.closeConnection()

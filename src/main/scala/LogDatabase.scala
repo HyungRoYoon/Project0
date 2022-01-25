@@ -2,16 +2,23 @@ import java.sql.Connection
 import scala.io.StdIn.readLine
 import util.control.Breaks.{break, _}
 
+//Log DB query related
 class LogDatabase {
   var attemptedName: String = _
   val closeMySQL = new ConnectMySQL
   var connectionHolder : Connection = _
+  var crewName, logDate, crewLog = " "
+
 
   def main(args: Array[String]): Unit = {
 
   }
 
-  def searchNameDatabase(connection: Connection): Unit = {
+  def showLogDatabase(connection: Connection): Unit = {
+
+  }
+
+  def searchNameLogDatabase(connection: Connection): Unit = {
     //save connection to local variable for future use
     connectionHolder = connection
     //search crew name from database
@@ -22,90 +29,70 @@ class LogDatabase {
 
         breakable {
           while (searchDBrs.next) {
-            val searchedName = searchDBrs.getString("crew_name")
-            val crewLog = searchDBrs.getString("text")
-            if (attemptedName == searchedName) {
+            crewName = searchDBrs.getString("crew_name")
+            crewLog = searchDBrs.getString("text")
+            if (attemptedName == crewName) {
               println(s"$crewLog")
               println(" ")
-              getUserChoice()
+              CrewRecords.getUserChoiceLogDB()
             }
           }
         }
       }
       catch {
-        case e: Exception => e.printStackTrace
+        case e: Exception => println("LogDatabase caught: " + e.toString)
       }
-      val closeMySQL = new ConnectMySQL
       closeMySQL.closeConnection()
     }
   }
 
-  def getUserChoice(): Unit = {
-    userChoices(readLine("Please enter 1 to customize crew search, 2 to modify crew's log database, 9 to go back, or 0 to exit the program: ").toInt)
-    println(" ")
-  }
-
-  def userChoices(x: Int): Unit = x match {
-    case 0 => CrewRecords.quitProgram()
-    case 1 => diyReadQuery(connectionHolder)
-    case 2 => diyModifyQuery(connectionHolder)
-    case 9 => goBack()
-    case _ => reEnterNumber(x)
-  }
-
-  def reEnterNumber(x: Int) : Unit = {
-    if (x != 0 && x != 9) println("Please select shown numbers.")
-    getUserChoice()
-  }
-
-  def goBack(): Unit = {
-    CrewRecords.getUserChoice(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
-  }
-
   def diyReadQuery(connection: Connection): Unit = {
-    val diyRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY: ")
+    val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY: ")
     try {
       val diyStatement = connection.createStatement
-      val diyDBrs = diyStatement.executeQuery(diyRequest)
+      val diyDBrs = diyStatement.executeQuery(diyReadRequest)
 
       breakable {
         while (diyDBrs.next) {
-          val crewName = diyDBrs.getString("crew_name")
-          val logDate = diyDBrs.getString("date_saved")
-          val crewLog = diyDBrs.getString("text")
+          crewName = diyDBrs.getString("crew_name")
+          logDate = diyDBrs.getString("date_saved")
+          crewLog = diyDBrs.getString("text")
 
           println(s"crew_name is: $crewName, date_saved is: $logDate, personal log is: $crewLog")
         }
         println(" ")
-        CrewRecords.getUserChoice(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
+        CrewRecords.getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
       }
     }
     catch {
-      case e: Exception => e.printStackTrace
+      case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your syntax and try again: ")
+        diyReadQuery(connectionHolder)
     }
 
     closeMySQL.closeConnection()
   }
 
   def diyModifyQuery(connection: Connection): Unit = {
-    val diyRequest = readLine("Please enter your query to create, update, or delete: ").toLowerCase()
+    val diyModifyRequest = readLine("Please enter your query to create, update, or delete: ").toLowerCase()
 
     try {
       val diyStatement = connection.createStatement
-      val diyDBrs = diyStatement.executeUpdate(diyRequest)
+      val diyDBrs = diyStatement.executeUpdate(diyModifyRequest)
 
       //this is to modify database - update, delete, create.
 
       breakable {
-
+        println("Successfully modified crew information. StandBy for update...")
+        Thread.sleep(1000)
+        searchNameLogDatabase(connection)
         println(" ")
-
+        CrewRecords.getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
       }
     }
     catch {
-      case e: Exception => e.printStackTrace
+      case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: ")
+        diyReadQuery(connectionHolder)
     }
     closeMySQL.closeConnection()
   }
-
 }
