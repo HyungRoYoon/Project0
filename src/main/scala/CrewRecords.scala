@@ -14,6 +14,8 @@ object CrewRecords {
     //You came across abandoned spaceship, trying to see what happened in the past.
     //You have activated main system and are now trying to access records of crews.
 
+    //show authorization name and password here for user to try to enter
+
     Init()
     //formatTable(Seq(Seq("head1", "head2", "head3"), Seq("one", "two", "three"), Seq("four", "five", "six")))
     if (authorizationDatabase.canSearchDB)
@@ -25,6 +27,9 @@ object CrewRecords {
   }
 
   def Init(): Unit = {
+    //create temp table for every database
+    connectMySQL.showHackedData(authorizationDatabase)
+
     //query name and password
     println(" ")
     val inputName = readLine("Please enter your name: ")
@@ -58,10 +63,35 @@ object CrewRecords {
     connectMySQL.establishConnection(crewInfoDatabase)
 
     println(" ")
-    val crewName = readLine("Please enter crew name: ")
+    val crewName = readLine("Please enter crew name OR CUSTOMIZE to manually query crew information: ")
     //query DB and search and return matching
-    logDatabase.attemptedName = crewName
-    connectMySQL.establishConnection(logDatabase)
+    println(" ")
+    if (crewName.toLowerCase() != "CUSTOMIZE".toLowerCase()) {
+      logDatabase.attemptedName = crewName
+      connectMySQL.establishConnection(logDatabase)
+    }
+    else if (crewName.toLowerCase() == "CUSTOMIZE".toLowerCase())
+    {
+      editCrewData()
+    }
+  }
+
+  def editCrewData(): Unit = {
+    println(" ")
+    val modifyCrewData = readLine("Please enter READ if you want to customize crew search, or MODIFY if you want to create, update, or delete crew data")
+    println(" ")
+    if (modifyCrewData.toLowerCase() == "READ".toLowerCase()) {
+      connectMySQL.customizedSearchConnection(crewInfoDatabase)
+    }
+    else if (modifyCrewData.toLowerCase() == "MODIFY".toLowerCase())
+    {
+      connectMySQL.modifyCrewDataConnection(crewInfoDatabase)
+    }
+    else
+    {
+      println("Incorrect response - Please choose again: ")
+      editCrewData()
+    }
   }
 
   def formatTable(table: Seq[Seq[Any]]): String = {

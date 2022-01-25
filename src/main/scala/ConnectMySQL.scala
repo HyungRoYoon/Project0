@@ -1,6 +1,8 @@
 import java.sql.DriverManager
 import java.sql.Connection
 import scala.reflect._
+import java.sql.ResultSet
+import java.sql.SQLException
 
 
 class ConnectMySQL {
@@ -28,6 +30,10 @@ class ConnectMySQL {
 //
 //
 //  }
+  def showHackedData(authorizationDatabase: AuthorizationDatabase)
+  {
+    authorizationDatabase.showNames(connection)
+  }
 
   def establishConnection(authorizationDatabase: AuthorizationDatabase)
   {
@@ -44,11 +50,40 @@ class ConnectMySQL {
     crewInfoDatabase.showNameTable(connection)
   }
 
+  //currently not being used
+  def customizedConnection(logDatabase: LogDatabase) =
+  {
+    logDatabase.diyReadQuery(connection)
+  }
+
+  def customizedSearchConnection(crewInfoDatabase: CrewInfoDatabase)
+  {
+    crewInfoDatabase.diyReadQuery(connection)
+  }
+
+  def modifyCrewDataConnection(crewInfoDatabase: CrewInfoDatabase)
+  {
+    crewInfoDatabase.diyModifyQuery(connection)
+  }
+
+
+
   def closeConnection(): Unit =
   {
     if (connection != null)
     {
       connection.close
     }
+  }
+
+
+  @throws[SQLException]
+  def hasColumn(rs: ResultSet, columnName: String): Boolean = {
+    val rsmd = rs.getMetaData
+    val columns = rsmd.getColumnCount
+    for (x <- 1 to columns) {
+      if (columnName == rsmd.getColumnName(x)) return true
+    }
+    false
   }
 }

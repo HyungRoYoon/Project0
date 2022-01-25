@@ -1,12 +1,37 @@
 import java.sql.Connection
 import util.control.Breaks.{break, _}
+import scala.io.StdIn.readLine
+
 
 class AuthorizationDatabase {
   var attemptedName: String = _
   var attemptedPassword: String = _
   val logDatabase = new LogDatabase
   var canSearchDB = false;
+  var attemptedCounter = 3;
 
+  def showNames(connection: Connection) : Unit =
+  {
+    //show created name table
+    try {
+      val showDBStatement = connection.createStatement
+      val showDBrs = showDBStatement.executeQuery("SELECT name, password FROM authentication")
+
+      breakable {
+        while (showDBrs.next) {
+          val showHackedName = showDBrs.getString("name")
+          val showHackPassword = showDBrs.getString("password")
+
+          println(s"name: $showHackedName, password: $showHackPassword")
+        }
+      }
+    }
+    catch {
+      case e: Exception => e.printStackTrace
+    }
+    val closeMySQL = new ConnectMySQL
+    closeMySQL.closeConnection()
+  }
 
   def authorize(connection: Connection): Unit =
   {
@@ -22,6 +47,7 @@ class AuthorizationDatabase {
             val authorizedName = authorizationRS.getString("name")
             val authorizedPassword = authorizationRS.getString("password")
             val authorizedRank = authorizationRS.getString("rank")
+
             if (attemptedName == authorizedName)
             {
               if (authorizedRank != "Cadet")
@@ -35,8 +61,16 @@ class AuthorizationDatabase {
                 }
                 else
                 {
-                  println("You have entered wrong password. Please try again.")
-                  CrewRecords.Init()
+                  if (attemptedCounter > 1) {
+                    attemptedCounter -= 1
+                      println("You have entered wrong password. Please try again. Remaining attempt: " + attemptedCounter.toString)
+                    CrewRecords.Init()
+
+                  }
+                  else if (attemptedCounter <= 0)
+                  {
+                    val adminPassword = readLine("Terminal lockdown in progress due to too many failed attempt. Please enter admin password to continue: ")
+                  }
                 }
               }
               else if (authorizedRank == "Cadet")
@@ -45,6 +79,13 @@ class AuthorizationDatabase {
                 break
               }
             }
+            else
+              {
+//                println(attemptedCounter)
+//                println("You have entered: " + attemptedName + ", and it doesn't exist in our database. Please enter user from existing table.")
+//                println(" ")
+//                CrewRecords.Init()
+              }
           }
         }
       }
