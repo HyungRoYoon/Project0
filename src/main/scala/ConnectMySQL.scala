@@ -1,10 +1,5 @@
 import java.sql.DriverManager
 import java.sql.Connection
-import scala.reflect._
-import java.sql.ResultSet
-import java.sql.SQLException
-import scala.io.StdIn._
-import scala.util.control.Breaks.breakable
 
 //Anything MySQL Connection related goes here
 class ConnectMySQL {
@@ -32,8 +27,6 @@ class ConnectMySQL {
   //    //authorizationDatabase.authorize(connection)
   //    case a if a == classOf[AuthorizationDatabase] =>
   //    case _ => print("try again")
-  //
-  //
   //  }
 
   def establishConnection(authorizationDatabase: AuthorizationDatabase) {
@@ -68,32 +61,6 @@ class ConnectMySQL {
   def closeConnection(): Unit = {
     if (connection != null) {
       connection.close
-    }
-  }
-
-  //not a good place for this but it's just one function that checks on SQL resultSet for now
-  @throws[SQLException]
-  def hasColumn(rs: ResultSet, columnName: String): Boolean = {
-    val rsmd = rs.getMetaData
-    val columns = rsmd.getColumnCount
-    for (x <- 1 to columns) {
-      if (columnName == rsmd.getColumnName(x)) return true
-    }
-    false
-  }
-
-  def showAllDatabases(connection: Connection): Unit = {
-    println(" ")
-    val showAllDB = connection.createStatement
-    println("Available databases: ")
-    val showAllDBrs = showAllDB.executeQuery("show tables")
-
-    println(" ")
-
-    breakable {
-      while (showAllDBrs.next) {
-        println(showAllDBrs.getString(1))
-      }
     }
   }
 }

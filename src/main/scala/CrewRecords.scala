@@ -1,5 +1,6 @@
 import scala.io.StdIn._
 
+
 // Consider this as terminal interface in video game.
 // This object needs to do just terminal function related
 
@@ -9,18 +10,14 @@ object CrewRecords {
   val logDatabase = new LogDatabase
   val crewInfoDatabase = new CrewInfoDatabase
 
+
   def main(args: Array[String]): Unit = {
     //You came across abandoned spaceship, trying to see what happened in the past.
     //You have activated main system and are now trying to access records of crews.
 
     Init()
     //formatTable(Seq(Seq("head1", "head2", "head3"), Seq("one", "two", "three"), Seq("four", "five", "six")))
-    if (authorizationDatabase.canSearchDB)
-      {
-        println(" ")
-        getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
-        println(" ")
-      }
+    askUserChoiceInput()
   }
 
   def Init(): Unit = {
@@ -32,15 +29,30 @@ object CrewRecords {
     val inputPassword = readLine("Please enter your password: ")
     println(" ")
 
-    checkUserInfo(inputName, inputPassword)
+    checkUserInfo(inputName.trim, inputPassword.trim)
   }
 
   def checkUserInfo(name: String, password: String): Unit = {
     //query name and password
-    authorizationDatabase.attemptedName = name
+    authorizationDatabase.attemptedName = name.capitalize
     authorizationDatabase.attemptedPassword = password
     connectMySQL.establishConnection(authorizationDatabase)
     //connectMySQL.establishConnection(classOf[AuthorizationDatabase])
+  }
+
+  def askUserChoiceInput() : Unit = {
+    if (authorizationDatabase.canSearchDB) {
+      println(" ")
+      try
+      {
+        getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
+      }
+      catch {
+        case e: Exception => println("Please choose from existing options: ")
+          askUserChoiceInput()
+      }
+      println(" ")
+    }
   }
 
   def getUserChoiceCR(x: Int) : Unit = x match {
@@ -49,8 +61,14 @@ object CrewRecords {
   }
 
   def getUserChoiceLogDB(): Unit = {
-    userChoicesLogDB(readLine("Please enter 1 to customize crew search, 2 to modify crew's log database, 9 to go back, or 0 to exit the program: ").toInt)
-    println(" ")
+    try {
+      userChoicesLogDB(readLine("Please enter 1 to customize crew search, 2 to modify crew's log database, 9 to go back, or 0 to exit the program: ").toInt)
+      println(" ")
+    }
+    catch {
+      case e: Exception => println("Please enter correct number choice.")
+        askUserChoiceInput()
+    }
   }
 
   def userChoicesLogDB(x: Int): Unit = x match {
@@ -81,21 +99,20 @@ object CrewRecords {
     connectMySQL.establishConnection(crewInfoDatabase)
 
     println(" ")
-    val crewName = readLine("Please enter crew name OR CUSTOMIZE to manually query crew information: ")
+    val crewNameModify = readLine("Please enter crew name (Case Sensitive) OR CUSTOMIZE to manually query crew information: ")
     //query DB and search and return matching
     println(" ")
-    if (crewName.toLowerCase() != "CUSTOMIZE".toLowerCase()) {
-      logDatabase.attemptedName = crewName
+    if (crewNameModify.toLowerCase() != "CUSTOMIZE".toLowerCase()) {
+      logDatabase.attemptedName = crewNameModify
       connectMySQL.establishConnection(logDatabase)
     }
-    else if (crewName.toLowerCase() == "CUSTOMIZE".toLowerCase())
+    else if (crewNameModify.toLowerCase() == "CUSTOMIZE".toLowerCase())
     {
       editCrewData()
     }
   }
 
   def editCrewData(): Unit = {
-    println(" ")
     val modifyCrewData = readLine("Please enter READ if you want to customize crew search, or MODIFY if you want to create, update, or delete crew data: ")
     println(" ")
     if (modifyCrewData.toLowerCase() == "READ".toLowerCase()) {

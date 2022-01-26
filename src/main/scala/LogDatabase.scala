@@ -1,22 +1,16 @@
-import java.sql.Connection
+import java.sql.{Connection, ResultSet, Statement}
 import scala.io.StdIn.readLine
 import util.control.Breaks.{break, _}
 
 //Log DB query related
 class LogDatabase {
+
   var attemptedName: String = _
-  val closeMySQL = new ConnectMySQL
+  val connectMySQL = new ConnectMySQL
   var connectionHolder : Connection = _
   var crewName, logDate, crewLog = " "
-
-
-  def main(args: Array[String]): Unit = {
-
-  }
-
-  def showLogDatabase(connection: Connection): Unit = {
-
-  }
+  var comparisonResult = false
+  var logCounter = 0;
 
   def searchNameLogDatabase(connection: Connection): Unit = {
     //save connection to local variable for future use
@@ -31,23 +25,46 @@ class LogDatabase {
           while (searchDBrs.next) {
             crewName = searchDBrs.getString("crew_name")
             crewLog = searchDBrs.getString("text")
-            if (attemptedName == crewName) {
+            if (attemptedName.capitalize == crewName) {
               println(s"$crewLog")
               println(" ")
               CrewRecords.getUserChoiceLogDB()
             }
+            else
+              {
+                logCounter += 1
+              }
           }
+          countRows(connection)
         }
       }
       catch {
         case e: Exception => println("LogDatabase caught: " + e.toString)
+        println(" ")
       }
-      closeMySQL.closeConnection()
+      connectMySQL.closeConnection()
     }
   }
 
+  def countRows(connection: Connection) : Unit = {
+      val countDBrowsST = connection.createStatement()
+      val countDBrs = countDBrowsST.executeQuery("select count(*) from crew_logs")
+    while (countDBrs.next()) {
+      val rowCount = countDBrs.getLong(1)
+      if (logCounter == rowCount)
+        {
+          logCounter = 0
+          println("You have entered: " + attemptedName + " and it doesn't exist in our database or the person doesn't have any personal logs saved. Please try again")
+        }
+    }
+    CrewRecords.askUserChoiceInput()
+    connectMySQL.closeConnection()
+  }
+
   def diyReadQuery(connection: Connection): Unit = {
-    val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY: ")
+    val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY; or type BACK to go back to modification selection screen: ").toLowerCase()
+    MiscManager.toEditCrewDataMenu(diyReadRequest)
+
     try {
       val diyStatement = connection.createStatement
       val diyDBrs = diyStatement.executeQuery(diyReadRequest)
@@ -68,22 +85,21 @@ class LogDatabase {
       case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your syntax and try again: ")
         diyReadQuery(connectionHolder)
     }
-
-    closeMySQL.closeConnection()
+    connectMySQL.closeConnection()
   }
 
   def diyModifyQuery(connection: Connection): Unit = {
-    val diyModifyRequest = readLine("Please enter your query to create, update, or delete: ").toLowerCase()
+    val diyModifyRequest = readLine("Please enter your query to create, update, or delete; or type BACK to go back to modification selection screen: ").toLowerCase()
+    MiscManager.toEditCrewDataMenu(diyModifyRequest)
 
     try {
       val diyStatement = connection.createStatement
-      val diyDBrs = diyStatement.executeUpdate(diyModifyRequest)
+      diyStatement.executeUpdate(diyModifyRequest)
 
       //this is to modify database - update, delete, create.
-
       breakable {
-        println("Successfully modified crew information. StandBy for update...")
-        Thread.sleep(1000)
+        println("Successfully modified crew logs. StandBy for update...")
+        MiscManager.waitForSecond(500)
         searchNameLogDatabase(connection)
         println(" ")
         CrewRecords.getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
@@ -91,8 +107,8 @@ class LogDatabase {
     }
     catch {
       case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: ")
-        diyReadQuery(connectionHolder)
+        diyModifyQuery(connectionHolder)
     }
-    closeMySQL.closeConnection()
+    connectMySQL.closeConnection()
   }
 }
