@@ -11,8 +11,10 @@ class LogDatabase {
   var crewName, logDate, crewLog = " "
   var comparisonResult = false
   var logCounter = 0;
+  var backString = "back"
 
   def searchNameLogDatabase(connection: Connection): Unit = {
+    logCounter = 0
     //save connection to local variable for future use
     connectionHolder = connection
     //search crew name from database
@@ -52,18 +54,21 @@ class LogDatabase {
     while (countDBrs.next()) {
       val rowCount = countDBrs.getLong(1)
       if (logCounter == rowCount)
-        {
-          logCounter = 0
-          println("You have entered: " + attemptedName + " and it doesn't exist in our database or the person doesn't have any personal logs saved. Please try again")
-        }
+      {
+        println("You have entered: " + attemptedName + " and it doesn't exist in our database or the person doesn't have any personal logs saved. Please try again")
+      }
     }
+    println(logCounter)
     CrewRecords.askUserChoiceInput()
     connectMySQL.closeConnection()
   }
 
   def diyReadQuery(connection: Connection): Unit = {
-    val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY; or type BACK to go back to modification selection screen: ").toLowerCase()
-    MiscManager.toEditCrewDataMenu(diyReadRequest)
+    val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY; or type BACK to go back to modification selection screen: ")
+    println(" ")
+    if (diyReadRequest.toLowerCase() == backString.toLowerCase()) {
+      MiscManager.toEditCrewLogMenu(diyReadRequest)
+    }
 
     try {
       val diyStatement = connection.createStatement
@@ -71,26 +76,33 @@ class LogDatabase {
 
       breakable {
         while (diyDBrs.next) {
-          crewName = diyDBrs.getString("crew_name")
-          logDate = diyDBrs.getString("date_saved")
-          crewLog = diyDBrs.getString("text")
+          if (MiscManager.hasColumn(diyDBrs, "crew_name")) {
+            crewName = diyDBrs.getString("crew_name")
+          }
+          if (MiscManager.hasColumn(diyDBrs, "date_saved")) {
+            logDate = diyDBrs.getString("date_saved")
+          }
+          if (MiscManager.hasColumn(diyDBrs, "text")) {
+            crewLog = diyDBrs.getString("text")
+          }
 
-          println(s"crew_name is: $crewName, date_saved is: $logDate, personal log is: $crewLog")
+          println(s"crew_name is: $crewName, date_saved is: $logDate, personal log is:\n $crewLog")
         }
         println(" ")
         CrewRecords.getUserChoiceCR(readLine("Please enter 1 to search crew or 0 to exit the program: ").toInt)
       }
     }
     catch {
-      case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your syntax and try again: ")
+      case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your syntax and try again: " + e.toString)
         diyReadQuery(connectionHolder)
     }
     connectMySQL.closeConnection()
   }
 
   def diyModifyQuery(connection: Connection): Unit = {
-    val diyModifyRequest = readLine("Please enter your query to create, update, or delete; or type BACK to go back to modification selection screen: ").toLowerCase()
-    MiscManager.toEditCrewDataMenu(diyModifyRequest)
+    val diyModifyRequest = readLine("Please enter your query to create, update, or delete; or type BACK to go back to modification selection screen: ")
+    println(" ")
+    MiscManager.toEditCrewLogMenu(diyModifyRequest)
 
     try {
       val diyStatement = connection.createStatement
@@ -106,7 +118,7 @@ class LogDatabase {
       }
     }
     catch {
-      case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: ")
+      case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: " + e.toString)
         diyModifyQuery(connectionHolder)
     }
     connectMySQL.closeConnection()

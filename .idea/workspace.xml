@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="CRUD is fully functional. Just need to fix authentication bug">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/MiscManager.scala" afterDir="false" />
+    <list default="true" id="c98c4763-ea54-4b7f-8c7b-5a026e52cfdf" name="Changes" comment="fixed most bugs that I was able to identify. Added another singleton object.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/AuthorizationDatabase.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/AuthorizationDatabase.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ConnectMySQL.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/CrewInfoDatabase.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CrewInfoDatabase.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/CrewRecords.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/LogDatabase.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/LogDatabase.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/MiscManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MiscManager.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643145622757</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed most bugs that I was able to identify. Added another singleton object.">
+      <created>1643238373683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1643238373683</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,7 +252,8 @@
     <MESSAGE value="showing crew information and searching personal log working in bare minimum capacity." />
     <MESSAGE value="implemented CRUD for both LogDatabase and CrewInfoDatabase. More optimization and exception catching needed" />
     <MESSAGE value="CRUD is fully functional. Just need to fix authentication bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD is fully functional. Just need to fix authentication bug" />
+    <MESSAGE value="fixed most bugs that I was able to identify. Added another singleton object." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed most bugs that I was able to identify. Added another singleton object." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

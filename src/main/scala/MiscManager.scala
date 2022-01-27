@@ -40,4 +40,11 @@ object MiscManager {
       CrewRecords.editCrewData()
     }
   }
+
+  def toEditCrewLogMenu(userInput: String): Unit = {
+    if (userInput == backString.toLowerCase())
+    {
+      CrewRecords.editCrewLogs()
+    }
+  }
 }

@@ -75,7 +75,8 @@ class CrewInfoDatabase {
 
   //be able to Create, Read, Update, Delete
     def diyReadQuery(connection: Connection): Unit = {
-      val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY; or type BACK to go back to modification selection screen: ").toLowerCase()
+      val diyReadRequest = readLine("Please enter your query in the order of SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY; or type BACK to go back to modification selection screen: ")
+      println(" ")
       MiscManager.toEditCrewDataMenu(diyReadRequest)
 
       //I want to get all strings between select and from based on user input
@@ -117,14 +118,15 @@ class CrewInfoDatabase {
         }
       }
       catch {
-        case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your query and try again: ")
+        case e: Exception => println("You have entered: " + diyReadRequest + ". Please check your query and try again: " + e.toString)
         diyReadQuery(connectionHolder)
       }
       connectMySQL.closeConnection()
     }
 
   def diyModifyQuery(connection: Connection): Unit = {
-    val diyModifyRequest = readLine("Please enter your query to create, update, or delete; or type BACK to go back to modification selection screen: ").toLowerCase()
+    val diyModifyRequest = readLine("Please enter your query to create, update, or delete; or type BACK to go back to modification selection screen: ")
+    println(" ")
     MiscManager.toEditCrewDataMenu(diyModifyRequest)
 
     try {
@@ -142,7 +144,7 @@ class CrewInfoDatabase {
       }
     }
     catch {
-      case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: ")
+      case e: Exception => println("You have entered: " + diyModifyRequest + ". Please check your query and try again: " + e.toString)
         println(" ")
         diyModifyQuery(connectionHolder)
     }

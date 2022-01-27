@@ -70,6 +70,8 @@ class AuthorizationDatabase {
                     attemptedCounter -= 1
                     if (attemptedCounter > 0) {
                       println("You have entered wrong password. Please try again. Remaining attempt: " + attemptedCounter.toString)
+                      println(" ")
+                      CrewRecords.Init()
                     }
                     else
                     {
@@ -96,7 +98,6 @@ class AuthorizationDatabase {
                       }
                     }
                     println(" ")
-                    CrewRecords.Init()
                   }
                 }
               }
@@ -108,7 +109,6 @@ class AuthorizationDatabase {
               }
             }
           }
-
           if (attemptedName != authorizedName)
           {
             println("You have entered: " + attemptedName + ", and it doesn't exist in our database. Please enter user from existing table.")
@@ -119,7 +119,7 @@ class AuthorizationDatabase {
         }
       }
       catch {
-        case e: Exception => println("AuthorizationDB - authorize caught: "+e.toString)
+        case e: Exception => println("AuthorizationDB - authorize caught: " + e.toString)
       }
       connectMySQL.closeConnection()
     }

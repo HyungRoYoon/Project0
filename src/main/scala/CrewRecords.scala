@@ -14,7 +14,7 @@ object CrewRecords {
   def main(args: Array[String]): Unit = {
     //You came across abandoned spaceship, trying to see what happened in the past.
     //You have activated main system and are now trying to access records of crews.
-
+    println(" ")
     Init()
     //formatTable(Seq(Seq("head1", "head2", "head3"), Seq("one", "two", "three"), Seq("four", "five", "six")))
     askUserChoiceInput()
@@ -109,6 +109,23 @@ object CrewRecords {
     else if (crewNameModify.toLowerCase() == "CUSTOMIZE".toLowerCase())
     {
       editCrewData()
+    }
+  }
+
+  def editCrewLogs():Unit = {
+    val modifyCrewLog = readLine("Please enter READ if you want to customize crew search, or MODIFY if you want to create, update, or delete crew data: ")
+    println(" ")
+    if (modifyCrewLog.toLowerCase() == "READ".toLowerCase()) {
+      connectMySQL.customizedSearchConnection(logDatabase)
+    }
+    else if (modifyCrewLog.toLowerCase() == "MODIFY".toLowerCase())
+    {
+      connectMySQL.modifyCrewLogConnection(logDatabase)
+    }
+    else
+    {
+      println("Incorrect response - Please choose again: ")
+      editCrewLogs()
     }
   }
 
